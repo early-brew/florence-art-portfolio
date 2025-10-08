@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/florence-art-portfolio/static/css/main.5c000766.css",
+    "main.js": "/florence-art-portfolio/static/js/main.96e7c556.js",
+    "static/js/453.65ed2da5.chunk.js": "/florence-art-portfolio/static/js/453.65ed2da5.chunk.js",
+    "static/media/je_naime_plus_les_cowboys.jpg": "/florence-art-portfolio/static/media/je_naime_plus_les_cowboys.4ab54c5f941e4ba06f60.jpg",
+    "static/media/yamnuska_trail.jpg": "/florence-art-portfolio/static/media/yamnuska_trail.a39a75e848bb14dab21b.jpg",
+    "static/media/remote_treehouses.jpg": "/florence-art-portfolio/static/media/remote_treehouses.b41678066c7dff32eaac.jpg",
+    "static/media/jivin_cowboy.jpg": "/florence-art-portfolio/static/media/jivin_cowboy.ab52ba79c97aacabbb6a.jpg",
+    "static/media/hammel_views.JPG": "/florence-art-portfolio/static/media/hammel_views.e47f06d5e8d31303fe26.JPG",
+    "static/media/isolated_cabins.jpg": "/florence-art-portfolio/static/media/isolated_cabins.7a60416cd1c7761f581f.jpg",
+    "static/media/cabo.jpg": "/florence-art-portfolio/static/media/cabo.664b1dfd9654f3d7c618.jpg",
+    "static/media/florence_and_friends.jpg": "/florence-art-portfolio/static/media/florence_and_friends.e401c46dc5632cee19cd.jpg",
+    "static/media/yukon.jpg": "/florence-art-portfolio/static/media/yukon.5f15d5aa651002aa631e.jpg",
+    "index.html": "/florence-art-portfolio/index.html",
+    "main.5c000766.css.map": "/florence-art-portfolio/static/css/main.5c000766.css.map",
+    "main.96e7c556.js.map": "/florence-art-portfolio/static/js/main.96e7c556.js.map",
+    "453.65ed2da5.chunk.js.map": "/florence-art-portfolio/static/js/453.65ed2da5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c000766.css",
+    "static/js/main.96e7c556.js"
+  ]
+}
