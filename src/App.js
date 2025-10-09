@@ -23,7 +23,7 @@ function App() {
           <nav className="nav-inner">
             <span className="brand">✨ Florence A. Art</span>
             <div className="nav-links">
-              <NavItem to="/" label="Home" />
+              <NavItem path="/florence-art" label="Home" />
               <NavItem to="/shop" label="Shop" />
               <NavItem to="/faq" label="FAQ" />
             </div>
