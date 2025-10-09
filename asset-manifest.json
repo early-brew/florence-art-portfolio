@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/florence-art-portfolio/static/css/main.5c000766.css",
-    "main.js": "/florence-art-portfolio/static/js/main.21e46a66.js",
+    "main.js": "/florence-art-portfolio/static/js/main.bbd155c5.js",
     "static/js/453.65ed2da5.chunk.js": "/florence-art-portfolio/static/js/453.65ed2da5.chunk.js",
     "static/media/je_naime_plus_les_cowboys.jpg": "/florence-art-portfolio/static/media/je_naime_plus_les_cowboys.4ab54c5f941e4ba06f60.jpg",
     "static/media/yamnuska_trail.jpg": "/florence-art-portfolio/static/media/yamnuska_trail.a39a75e848bb14dab21b.jpg",
@@ -14,11 +14,11 @@
     "static/media/yukon.jpg": "/florence-art-portfolio/static/media/yukon.5f15d5aa651002aa631e.jpg",
     "index.html": "/florence-art-portfolio/index.html",
     "main.5c000766.css.map": "/florence-art-portfolio/static/css/main.5c000766.css.map",
-    "main.21e46a66.js.map": "/florence-art-portfolio/static/js/main.21e46a66.js.map",
+    "main.bbd155c5.js.map": "/florence-art-portfolio/static/js/main.bbd155c5.js.map",
     "453.65ed2da5.chunk.js.map": "/florence-art-portfolio/static/js/453.65ed2da5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c000766.css",
-    "static/js/main.21e46a66.js"
+    "static/js/main.bbd155c5.js"
   ]
 }
