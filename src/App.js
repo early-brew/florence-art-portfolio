@@ -23,7 +23,7 @@ function App() {
           <nav className="nav-inner">
             <span className="brand">✨ Florence A. Art</span>
             <div className="nav-links">
-              <NavItem path="/" label="Home" />
+              <NavItem path="/home" label="Home" />
               <NavItem to="/shop" label="Shop" />
               <NavItem to="/faq" label="FAQ" />
             </div>
@@ -32,7 +32,7 @@ function App() {
 
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/faq" element={<FAQ />} />
           </Routes>
