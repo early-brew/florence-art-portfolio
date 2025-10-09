@@ -32,7 +32,7 @@ function App() {
 
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/florence-art" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/faq" element={<FAQ />} />
           </Routes>
