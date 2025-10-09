@@ -16,7 +16,7 @@ import Gallery from './Gallery';
 const { Meta } = Card;
 function App() {
   return (
-    <Router>
+    <Router basename="/florence-art">
       <div className="app-container">
         {/* Navbar */}
         <header className="navbar">
