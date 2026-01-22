@@ -231,7 +231,7 @@ function Home() {
                 {/* , attract visitors, and strengthen community ties. */}
                 {/* We want to make our city’s online presence stronger, helping local shops and services succeed in today’s digital world. */}
               </h3>
-              <p style={{ margin: "0.5rem 0 0 0" }}></p>\
+              <p style={{ margin: "0.5rem 0 0 0" }}></p>
             </div>
           </Col>
 
