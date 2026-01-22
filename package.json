@@ -2,7 +2,7 @@
   "name": "my-art-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://early-brew.github.io/florence-art-portfolio",
+  "homepage": "https://www.earlybrewcache.ca",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.7.0",
