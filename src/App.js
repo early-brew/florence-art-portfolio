@@ -107,10 +107,10 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/cookies-policy" element={<CookiesPolicy />} />
+          <Route path="/services/*" element={<Services />} />
+          <Route path="/products/*" element={<Products />} />
+          <Route path="/privacy-policy/*" element={<PrivacyPolicy />} />
+          <Route path="/cookies-policy/*" element={<CookiesPolicy />} />
           <Route path="*" element={<CatchAll />} />
         </Routes>
       </main>
