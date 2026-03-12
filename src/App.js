@@ -54,6 +54,9 @@ const CatchAll = () => {
   const location = useLocation();
   const pending = sessionStorage.getItem("redirectPath");
 
+  console.log("SESSIONSTORAGE", sessionStorage);
+  console.log("isPrerender", isPrerender());
+
   // 🚫 Disable 404 redirect logic during prerender
   if (pending && !isPrerender()) {
     return <RedirectHandler />;
