@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
       clean: true,
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".js"],
+      extensions: [".tsx", ".ts", ".js", ".jsx"],
       fallback: {
         fs: false,
         path: false,
@@ -45,15 +45,29 @@ module.exports = (env, argv) => {
           test: /\.(png|jpe?g|gif|svg|webp)$/i,
           type: "asset/resource",
         },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+            },
+          },
+        },
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./public/index.html",
+        filename: "index.html",
+        inject: "body",
         cache: false,
       }),
       new CopyPlugin({
-        patterns: [{ from: "public", to: "." }], // copies CNAME, logos, etc.
+        patterns: [
+          { from: "public", to: ".", globOptions: { ignore: ["index.html"] } }, // IGNORE index.html
+        ],
       }),
     ],
     devServer: {
