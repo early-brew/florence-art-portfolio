@@ -60,13 +60,18 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "./public/index.html",
-        filename: "index.html",
         inject: "body",
         cache: false,
       }),
       new CopyPlugin({
         patterns: [
-          { from: "public", to: ".", globOptions: { ignore: ["index.html"] } }, // IGNORE index.html
+          {
+            from: "public",
+            to: ".",
+            globOptions: {
+              ignore: ["**/index.html"], // <-- IGNORE index.html
+            },
+          },
         ],
       }),
     ],
