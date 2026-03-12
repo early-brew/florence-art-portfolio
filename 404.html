@@ -1,13 +1,12 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Redirect</title>
-    <script>
-      const path = window.location.pathname;
-      sessionStorage.setItem("redirectPath", path);
-      window.location.replace("/");
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Early Brew Cache</title>
   </head>
-  <body></body>
+  <body>
+    <div id="root"></div>
+    <!-- HtmlWebpackPlugin will inject the bundle automatically -->
+  </body>
 </html>
