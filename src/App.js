@@ -138,6 +138,7 @@ function NavItem({ to, label }) {
 
 function Home() {
   const { useBreakpoint } = Grid;
+  const navigate = useNavigate();
   const screens = useBreakpoint();
 
   const sm = screens.sm && !screens.md;
@@ -347,9 +348,9 @@ function Home() {
             <Button
               style={{ marginBottom: 60, textAlign: "center" }}
               type="primary"
-              onClick={() => window.open("products", "_blank")}
+              onClick={() => navigate("/products")}
             >
-              {"More Info"}
+              More Info
             </Button>
           </div>
         </Col>

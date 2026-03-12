@@ -1,5 +1,7 @@
 import React from "react";
-import { Col, Layout, Row, Typography } from "antd";
+import { useNavigate } from "react-router-dom";
+
+import { Col, Layout, Row, Typography, Button } from "antd";
 import EmailCopyButton from "./EmailCopyButton";
 import InstagramButton from "./InstagramLinkButton";
 
@@ -7,6 +9,8 @@ const { Footer } = Layout;
 const { Text, Link } = Typography;
 
 const AppFooter = () => {
+  const navigate = useNavigate();
+
   return (
     <Footer
       style={{
@@ -60,12 +64,27 @@ const AppFooter = () => {
         </Col>
         <Col>
           <div style={{ display: "flex", gap: 24 }}>
-            <Link href="/privacy-policy" target="_blank">
+            {/* <Link href="/privacy-policy" target="_blank">
               Privacy Policy
             </Link>
+
             <Link href="/cookies-policy" target="_blank">
               Cookies Policy
-            </Link>
+            </Link> */}
+            <Button
+              style={{ marginBottom: 60, textAlign: "center" }}
+              type="secondary"
+              onClick={() => navigate("/cookies-policy")}
+            >
+              Cookies Policy
+            </Button>
+            <Button
+              style={{ marginBottom: 60, textAlign: "center" }}
+              type="secondary"
+              onClick={() => navigate("/privacy-policy")}
+            >
+              Privacy Policy
+            </Button>
           </div>
         </Col>
       </Row>
