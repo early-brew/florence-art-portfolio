@@ -3,6 +3,8 @@ import {
   Routes,
   Route,
   NavLink,
+  useNavigate,
+  useLocation,
 } from "react-router-dom";
 import { Row, Grid, Col, Divider, Button } from "antd";
 
@@ -20,45 +22,103 @@ import PrivacyPolicy from "./Policies/PrivacyPolicy";
 import CookiesPolicy from "./Policies/CookiesPolicy";
 import AppFooter from "./AppFooter";
 import Products from "./Products";
+import { useEffect } from "react";
+import { isPrerender } from "./utils/isPrerender";
+
+// 1️⃣ RedirectHandler restores the path after 404.html redirect
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+
+  // 🔑 Always notify prerender that the page is ready
+  useEffect(() => {
+    window.dispatchEvent(new Event("prerender-ready"));
+  }, []);
+
+  // ❌ Do NOT navigate during prerender
+  useEffect(() => {
+    if (isPrerender()) return;
+
+    const path = sessionStorage.getItem("redirectPath");
+    if (path) {
+      sessionStorage.removeItem("redirectPath");
+      navigate(path, { replace: true });
+    }
+  }, [navigate]);
+
+  return null;
+};
+
+// 2️⃣ CatchAll decides what component to render for unmatched paths
+
+const CatchAll = () => {
+  const location = useLocation();
+  const pending = sessionStorage.getItem("redirectPath");
+
+  // 🚫 Disable 404 redirect logic during prerender
+  if (pending && !isPrerender()) {
+    return <RedirectHandler />;
+  }
+
+  const path = location.pathname.toLowerCase();
+  const isProductsRoute = path.includes("/products/");
+  const isServicesRoute = path.includes("/services/");
+  const isPrivacyPolicyRoute = path.includes("/privacy-policy");
+  const isCookiesPolicyRoute = path.includes("/cookies-policy");
+
+  if (isProductsRoute) {
+    return <Products />;
+  }
+
+  if (isServicesRoute) {
+    return <Services />;
+  }
+  if (isPrivacyPolicyRoute) {
+    return <PrivacyPolicy />;
+  }
+  if (isCookiesPolicyRoute) {
+    return <CookiesPolicy />;
+  }
+
+  return <Home />;
+};
 
 function App() {
   return (
-    <Router basename="/">
-      <div className="app-container">
-        {/* Navbar */}
-        <header className="navbar">
-          <div className="nav-top">
-            <img
-              style={{ height: "40px", width: "40px" }}
-              src={ebc_logo}
-              alt="EBC Logo"
-            />
-            <h1 className="brand-title">Early Brew Cache Inc.</h1>
-          </div>
-          <Divider style={{ marginBottom: "4px", marginTop: "10px" }} />
-          <nav className="nav-links">
-            <NavItem to="/" label="Home" />
-            <NavItem to="/products" label="Products" />
-            <NavItem to="/services" label="Services" />
-            {/* <NavItem to="/case-studies" label="Case Studies" /> */}
-          </nav>
-        </header>
+    <div className="app-container">
+      {/* Navbar */}
+      <header className="navbar">
+        <div className="nav-top">
+          <img
+            style={{ height: "40px", width: "40px" }}
+            src={ebc_logo}
+            alt="EBC Logo"
+          />
+          <h1 className="brand-title">Early Brew Cache Inc.</h1>
+        </div>
+        <Divider style={{ marginBottom: "4px", marginTop: "10px" }} />
+        <nav className="nav-links">
+          <NavItem to="/" label="Home" />
+          <NavItem to="/products" label="Products" />
+          <NavItem to="/services" label="Services" />
+          {/* <NavItem to="/case-studies" label="Case Studies" /> */}
+        </nav>
+      </header>
 
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/cookies-policy" element={<CookiesPolicy />} />
-          </Routes>
-        </main>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookies-policy" element={<CookiesPolicy />} />
+          <Route path="*" element={<CatchAll />} />
+        </Routes>
+      </main>
 
-        <Divider />
+      <Divider />
 
-        <AppFooter />
-      </div>
-    </Router>
+      <AppFooter />
+    </div>
   );
 }
 
