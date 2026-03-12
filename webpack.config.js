@@ -82,8 +82,33 @@ module.exports = (env, argv) => {
     devServer: {
       historyApiFallback: true, // allows BrowserRouter to work in dev mode
       static: path.join(__dirname, "dist"),
-      port: 3000,
+      port: 3001,
       open: true,
+      // THE FIX FOR REFRESH NOT WORKING
+      historyApiFallback: true,
+
+      // critical: serve from memory, NOT dist
+      static: {
+        directory: path.join(__dirname, "public"),
+        watch: true,
+      },
+
+      // prevents caching (THIS is your real bug)
+      client: {
+        overlay: true,
+      },
+
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    },
+
+    optimization: {
+      splitChunks: isDev
+        ? false
+        : {
+            chunks: "all",
+          },
     },
   };
 };
