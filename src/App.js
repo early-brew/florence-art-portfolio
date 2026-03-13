@@ -63,8 +63,8 @@ const CatchAll = () => {
   }
 
   const path = location.pathname.toLowerCase();
-  const isProductsRoute = path.includes("/products/");
-  const isServicesRoute = path.includes("/services/");
+  const isProductsRoute = path.includes("/products");
+  const isServicesRoute = path.includes("/services");
   const isPrivacyPolicyRoute = path.includes("/privacy-policy");
   const isCookiesPolicyRoute = path.includes("/cookies-policy");
 
