@@ -363,6 +363,7 @@ function Home() {
           <PrototypeCard />
         </Col>
       </Row>
+      <Divider />
       <Row
         gutter={0} // no spacing between columns
         align="middle"
