@@ -24,6 +24,7 @@ import AppFooter from "./AppFooter";
 import Products from "./Products";
 import { useEffect } from "react";
 import { isPrerender } from "./utils/isPrerender";
+import PrototypeCard from "./PrototypeCard";
 
 // 1️⃣ RedirectHandler restores the path after 404.html redirect
 const RedirectHandler = () => {
@@ -328,6 +329,60 @@ function Home() {
       >
         <Col xs={24} sm={24} md={12} lg={12}>
           <div class="product-intro">
+            <h3 class="product-kicker">Our Designs</h3>
+            <h1 class="product-title">CONSULTING</h1>
+            <div class="mission-text">
+              <p>
+                A modern energy consulting platform designed to showcase
+                expertise, build trust, and highlight real-world impact. The
+                solution features intuitive navigation, structured service
+                offerings, live project visibility, and clear access to team and
+                location information—positioning the company as a
+                forward-thinking leader in data-driven, sustainable energy
+                solutions.
+              </p>
+              {/* <p>
+                Our approach celebrates local identity, strengthens community
+                bonds, and keeps technology human-centered.
+              </p>
+              <p>
+                By making it easy to be discovered online, we help businesses
+                grow visibility, engagement, and trust.
+              </p> */}
+            </div>{" "}
+            {/* <Button
+              style={{ marginBottom: 60, textAlign: "center" }}
+              type="primary"
+              onClick={() => navigate("/products")}
+            >
+              More Info
+            </Button> */}
+          </div>
+        </Col>
+        <Col xs={21} sm={21} md={12} lg={12}>
+          <PrototypeCard />
+        </Col>
+      </Row>
+      <Row
+        gutter={0} // no spacing between columns
+        align="middle"
+        justify="center"
+        style={{
+          width: "100%",
+          margin: 0,
+          padding: "1rem 0",
+          fontFamily: "EB Garamond, serif",
+          zIndex: 2,
+        }}
+      >
+        <Col xs={20} sm={11} md={11} lg={11}>
+          {" "}
+          <div class="hover-image">
+            <img src={tourism} alt="Townscape community preview" />
+          </div>
+        </Col>{" "}
+        <Col xs={25} sm={13} md={13} lg={13}>
+          <div class="product-intro">
             <h3 class="product-kicker">Our Product</h3>
             <h1 class="product-title">TOWNSCAPE</h1>
             <div class="mission-text">
@@ -352,12 +407,6 @@ function Home() {
             >
               More Info
             </Button>
-          </div>
-        </Col>
-        <Col xs={21} sm={21} md={12} lg={12}>
-          {" "}
-          <div class="hover-image">
-            <img src={tourism} alt="Townscape community preview" />
           </div>
         </Col>
       </Row>
