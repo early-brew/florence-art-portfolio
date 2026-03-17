@@ -34,17 +34,17 @@ const PrototypeCard = () => {
       </Card>
 
       <Modal
-        title="Interactive Prototype"
+        title="Interactive Prototype - click on different icons and buttons to get a a better feel for the design!"
         open={open}
         onCancel={() => setOpen(false)}
         footer={null}
-        width={900}
+        width={1500}
       >
         <iframe
           title="Figma Prototype"
           src={figmaEmbedUrl}
           width="100%"
-          height="500"
+          height="700"
           style={{ border: "none" }}
           allowFullScreen
         />
