@@ -1,14 +1,12 @@
 import React from "react";
-import { Card, Col, Divider, List, Row, Typography } from "antd";
+import { Card, Col, List, Row, Typography } from "antd";
+import { motion } from "framer-motion";
 
 const { Title, Text } = Typography;
 
 const pricingPlans = [
   {
     name: "Consulting",
-    pages: "-",
-    maintenance: "-",
-    announcements: "-",
     price: "$140/hour",
     features: [
       "Identify marketing opportunities",
@@ -18,9 +16,6 @@ const pricingPlans = [
   },
   {
     name: "Website Design",
-    pages: "5–15 pages, fully responsive",
-    maintenance: "Updates & support available",
-    announcements: "-",
     price: "$2,500 – $7,500",
     features: [
       "Build a site that drives leads & captures emails",
@@ -30,9 +25,6 @@ const pricingPlans = [
   },
   {
     name: "Website Updates & Maintenance",
-    pages: "-",
-    maintenance: "Ongoing updates",
-    announcements: "-",
     price: "$70/hour",
     features: [
       "Keep your website current for campaigns & promotions",
@@ -42,9 +34,6 @@ const pricingPlans = [
   },
   {
     name: "Marketing-Focused Creative Design",
-    pages: "-",
-    maintenance: "-",
-    announcements: "-",
     price: "$70 – $150/hour",
     features: [
       "Design landing pages, banners, graphics, and videos",
@@ -54,9 +43,6 @@ const pricingPlans = [
   },
   {
     name: "Marketing Strategy + Asset Implementation",
-    pages: "-",
-    maintenance: "-",
-    announcements: "-",
     price: "$1,500 – $3,500/month",
     features: [
       "Execute campaigns with custom-designed web pages & visuals",
@@ -66,9 +52,6 @@ const pricingPlans = [
   },
   {
     name: "Website + Marketing Bundle",
-    pages: "5–15 pages website + ongoing marketing support",
-    maintenance: "Full weekly updates + creative assets",
-    announcements: "-",
     price: "$5,000 – $10,000 + $1,500/month",
     features: [
       "Launch a marketing-ready website",
@@ -78,81 +61,95 @@ const pricingPlans = [
   },
 ];
 
-const extraRate = {
-  description: "Additional work beyond plan scope",
-  price: "$140/hour",
-};
-
 const MarketingPricingTable = () => {
   return (
     <div
       style={{
-        padding: "40px",
-        background: "#f4e8d4ff",
+        padding: "60px 20px",
+        background: "#f9f6e7",
         fontFamily: "'EB Garamond', serif",
       }}
     >
       <Title
         level={2}
-        style={{ textAlign: "center", fontFamily: "'EB Garamond', serif" }}
+        style={{
+          textAlign: "center",
+          marginBottom: 10,
+          fontFamily: "'EB Garamond', serif",
+        }}
       >
         Marketing & Website Services Pricing
       </Title>
-      <Title
-        level={5}
+      <Text
         style={{
+          display: "block",
           textAlign: "center",
-          marginBottom: "40px",
+          marginBottom: "50px",
           fontFamily: "'Instrument Sans', sans-serif",
+          color: "#555",
         }}
       >
-        Please contact for pricing inquiry at <a>support@earlybrewcache.ca</a>
-      </Title>
+        Please contact for pricing inquiry at{" "}
+        <a href="mailto:support@earlybrewcache.ca">support@earlybrewcache.ca</a>
+      </Text>
 
       <Row gutter={[24, 24]} justify="center">
-        {pricingPlans.map((plan) => (
+        {pricingPlans.map((plan, idx) => (
           <Col xs={24} sm={12} md={8} key={plan.name}>
-            <Card
-              title={plan.name}
-              bordered
-              style={{ borderRadius: 6, textAlign: "center" }}
+            <motion.div
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
             >
-              <List
-                size="small"
-                dataSource={plan.features}
-                style={{ margin: "-5px" }}
-                renderItem={(item) => (
-                  <List.Item
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                    }}
-                  >
-                    <span style={{ textAlign: "center" }}>{item}</span>
-                  </List.Item>
-                )}
-              />
-            </Card>
+              <Card
+                title={plan.name}
+                bordered={false}
+                style={{
+                  borderRadius: 16,
+                  textAlign: "center",
+                  padding: 24,
+                  boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
+                  background: "#fff",
+                  minHeight: 320,
+                }}
+                headStyle={{ fontSize: "1.3rem", fontWeight: 600 }}
+              >
+                <Text
+                  strong
+                  style={{
+                    display: "block",
+                    marginBottom: 16,
+                    fontSize: "1.2rem",
+                  }}
+                >
+                  {plan.price}
+                </Text>
+                <List
+                  dataSource={plan.features}
+                  size="small"
+                  renderItem={(item) => (
+                    <List.Item
+                      style={{
+                        justifyContent: "center",
+                        textAlign: "center",
+                        borderBottom: "none",
+                        padding: "4px 0",
+                      }}
+                    >
+                      <Text>{item}</Text>
+                    </List.Item>
+                  )}
+                />
+              </Card>
+            </motion.div>
           </Col>
         ))}
       </Row>
-
-      {/* 
-      <Card
-        title="Extra Work / Hourly Rate"
-        bordered
-        style={{
-          borderRadius: 12,
-          textAlign: "center",
-          maxWidth: 400,
-          margin: "40px auto",
-        }}
-      >
-        <Text>{extraRate.description}</Text>
-        <br />
-        <Text strong>{extraRate.price}</Text>
-      </Card> */}
     </div>
   );
 };

@@ -70,8 +70,8 @@ function Home() {
     padding: "60px 20px",
     width: "100%",
     scrollSnapAlign: "start",
-    background: dark ? "#1a1a1a" : "rgba(255,255,255,0.85)",
-    color: dark ? "white" : "black",
+    // background: dark ? "#1a1a1a" : "rgba(255,255,255,0.85)",
+    // color: dark ? "white" : "black"
   });
 
   const card = {
