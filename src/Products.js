@@ -59,7 +59,7 @@ const partnerProducts = [
 
 const Products = () => {
   return (
-    <div style={{ textAlign: "center", marginBottom: 10 }}>
+    <div style={{ textAlign: "center", marginBottom: 10, marginTop: 100 }}>
       {" "}
       <h2 style={{ fontSize: "2.5rem", marginBottom: 5 }}>
         Our Products & Features

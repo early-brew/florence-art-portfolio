@@ -1,18 +1,224 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
- */
-
-body {
+/* ---------------- BASE ---------------- */
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  cursor: pointer;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  color: white;
+}
+
+/* ---------------- SNAP CONTAINER ---------------- */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  padding-top: 70px; /* navbar height */
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./img/GC_logo.jpeg") center/cover no-repeat;
+  background-size: cover;
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  color: white;
+  font-size: clamp(48px, 9vw, 110px);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-subtitle {
+  margin-top: 20px;
+  font-size: clamp(14px, 2vw, 20px);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------------- STATEMENT ---------------- */
+.statement {
+  padding: 80px 20px;
+  text-align: center;
+  font-size: clamp(20px, 3vw, 32px);
+}
+
+/* ---------------- CARD SECTIONS ---------------- */
+.card-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.card-section.dark {
+  background: #1a1a1a;
+  color: white;
+}
+
+.card-section.light {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------------- CARDS ---------------- */
+.card {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  max-width: 1000px;
+  width: 90%;
+  border-radius: 20px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card.reverse {
+  flex-direction: row-reverse;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.card-text h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  margin: 10px 0;
+}
+
+.card-text h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.card-text p {
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+.card-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Match PrototypeCard image size */
+.matched-image {
+  width: 100%;
+  max-width: 1000px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    text-align: center;
+  }
+  .card.reverse {
+    flex-direction: column;
+  }
+
+  .matched-image {
+    height: 200px;
+  }
 }

@@ -28,7 +28,11 @@ const AppFooter = () => {
         <Col>
           <h1
             className="brand-title"
-            style={{ margin: 0, fontFamily: "'EB Garamond', serif" }}
+            style={{
+              margin: 0,
+              fontFamily: "'EB Garamond', serif",
+              color: "black",
+            }}
           >
             Early Brew Cache Inc.
           </h1>

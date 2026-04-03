@@ -13,7 +13,12 @@ const PrototypeCard = () => {
     <>
       <Card
         hoverable
-        style={{ maxWidth: 1000, margin: "0 auto", borderRadius: 12 }}
+        style={{
+          width: "100%", // force card to never exceed parent
+          maxWidth: 400, // optional: match desired card size
+          borderRadius: 12,
+          margin: "0 auto",
+        }}
         cover={
           <img
             alt="Prototype Preview"

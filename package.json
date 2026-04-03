@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "framer-motion": "^12.38.0",
     "nodemailer": "^7.0.10",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -53,7 +54,7 @@
     "style-loader": "^4.0.0",
     "tailwindcss": "^4.1.12",
     "ts-loader": "^9.5.4",
-    "typescript": "^5.9.3",
+    "typescript": "^4.9.5",
     "webpack": "^5.105.4",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
