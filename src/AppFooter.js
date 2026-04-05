@@ -14,7 +14,7 @@ const AppFooter = () => {
   return (
     <Footer
       style={{
-        backgroundColor: "#f3f1dcff",
+        backgroundColor: "#fdffd2ff",
         padding: "24px 40px",
       }}
     >
@@ -68,13 +68,6 @@ const AppFooter = () => {
         </Col>
         <Col>
           <div style={{ display: "flex", gap: 24 }}>
-            {/* <Link href="/privacy-policy" target="_blank">
-              Privacy Policy
-            </Link>
-
-            <Link href="/cookies-policy" target="_blank">
-              Cookies Policy
-            </Link> */}
             <Button
               style={{ marginBottom: 60, textAlign: "center" }}
               type="secondary"
